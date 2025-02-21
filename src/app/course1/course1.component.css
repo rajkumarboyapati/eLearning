@@ -1,0 +1,257 @@
+/* General form styling */
+body {
+    font-family: 'Roboto', sans-serif; /* Change font to a more modern, elegant style */
+}
+
+form {
+    width: 75%;
+    margin: 30px auto;
+    padding: 40px;
+    background-color: #f4f4f9;
+    border-radius: 10px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    color: #333;
+    font-size: 28px;
+    font-weight: 600;
+}
+
+h3, h4 {
+    color: #333;
+    margin-top: 30px;
+    font-weight: 500;
+}
+
+/* Form section styling */
+.form-section {
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    padding: 25px;
+    margin-bottom: 40px;
+    background-color: #fff;
+}
+
+/* Label and input styling */
+label {
+    font-size: 16px;
+    margin-bottom: 8px;
+    display: block;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    box-sizing: border-box;
+    background-color: #fafafa;
+}
+
+input:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+/* Button Styling */
+button {
+    padding: 12px 25px;
+    font-size: 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+    margin-top: 15px;
+    margin-bottom: 20px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Disabled button */
+button:disabled {
+    background-color: #bbb;
+    cursor: not-allowed;
+}
+
+/* Add/Remove Buttons for different sections */
+.add-btn,
+.remove-btn {
+    padding: 10px 25px;
+    font-size: 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    margin: 10px 0;
+}
+
+.add-btn {
+    background-color: #28a745;
+}
+
+.remove-btn {
+    background-color: #dc3545;
+}
+
+.add-btn:hover {
+    background-color: #218838;
+}
+
+.remove-btn:hover {
+    background-color: #c82333;
+}
+
+/* Spacing between different sections of the form */
+.cp {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.cp > div {
+    width: 48%;
+}
+
+/* Section-specific adjustments */
+.instructor-section,
+.module-section,
+.level-section,
+.category-section {
+    margin-top: 30px;
+    position: relative;
+}
+
+/* Positioning of Add/Remove buttons for instructors, modules, videos, quizzes, etc. */
+button[type="button"].add-btn,
+button[type="button"].remove-btn {
+    width: auto;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.instructor-section .add-btn, 
+.module-section .add-btn, 
+.level-section .add-btn, 
+.category-section .add-btn {
+    position: absolute;
+    left: 10px;
+    bottom: 10px;
+}
+
+.instructor-section .remove-btn, 
+.module-section .remove-btn, 
+.level-section .remove-btn, 
+.category-section .remove-btn {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+}
+
+/* Submit Button */
+button[type="submit"] {
+    background-color: #007bff;
+    color: white;
+    font-size: 18px;
+    padding: 15px 0;
+    width: 100%;
+    border-radius: 8px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/* Section for Instructors */
+.instructor-item {
+    margin-bottom: 25px;
+}
+
+.instructor-item input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+}
+
+/* Section for Modules */
+.module-item {
+    margin-bottom: 25px;
+}
+
+.module-item input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+}
+
+/* Section for Videos */
+.video-item {
+    margin-bottom: 25px;
+}
+
+.video-item input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+}
+
+/* Section for Quiz */
+.question-item {
+    margin-bottom: 25px;
+}
+
+.question-item input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+}
+
+/* Level Section */
+.level-item {
+    margin-top: 20px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff;
+}
+
+.level-item input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+}
+
+/* Category Section */
+.category-section input {
+    width: 100%;
+    padding: 12px;
+    margin-top: 20px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    background-color: #fafafa;
+}
+
+/* Overall spacing for the form */
+form > div {
+    margin-bottom: 40px;
+}
+
+form > div h3 {
+    margin-top: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .cp {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .cp > div {
+        width: 100%;
+    }
+}

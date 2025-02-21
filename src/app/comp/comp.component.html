@@ -1,0 +1,167 @@
+<form [formGroup]="courseForm" (ngSubmit)="addcourse()">
+    <div class="form-group">
+      <label for="courseId">Course ID</label>
+      <input type="text" id="courseId" formControlName="courseId" class="form-control">
+    </div>
+  
+    <div class="form-group">
+      <label for="courseName">Course Name</label>
+      <input type="text" id="courseName" formControlName="courseName" class="form-control">
+    </div>
+  
+    <div class="form-group">
+      <label for="courseDuration">Course Duration</label>
+      <input type="text" id="courseDuration" formControlName="courseDuration" class="form-control">
+    </div>
+  
+    <!-- Category -->
+    <div formGroupName="category">
+      <div class="form-group">
+        <label for="categoryId">Category ID</label>
+        <input type="text" id="categoryId" formControlName="categoryId" class="form-control">
+      </div>
+  
+      <div class="form-group">
+        <label for="categoryName">Category Name</label>
+        <input type="text" id="categoryName" formControlName="categoryName" class="form-control">
+      </div>
+    </div>
+  
+    <!-- Level List -->
+    <div formArrayName="levelList">
+      <div *ngFor="let level of levelList.controls; let i = index" [formGroupName]="i">
+        <div class="form-group">
+          <label for="levelId">Level ID</label>
+          <input type="text" id="levelId" formControlName="levelId" class="form-control">
+        </div>
+  
+        <div class="form-group">
+          <label for="levelName">Level Name</label>
+          <input type="text" id="levelName" formControlName="levelName" class="form-control">
+        </div>
+      </div>
+    </div>
+  
+    <!-- Module List -->
+    <div formArrayName="moduleList">
+      <div *ngFor="let module of moduleList.controls; let i = index" [formGroupName]="i">
+        <h3>Module {{i + 1}}</h3>
+        <p>{{m}}</p>
+        <p>{{m+i}}</p>
+        <div class="form-group">
+          <label for="moduleId">Module ID</label>
+          <input type="text" id="moduleId" formControlName="moduleId" class="form-control">
+        </div>
+  
+        <div class="form-group">
+          <label for="moduleName">Module Name</label>
+          <input type="text" id="moduleName" formControlName="moduleName" class="form-control">
+        </div>
+  
+        <div class="form-group">
+          <label for="moduleContent">Module Content</label>
+          <textarea id="moduleContent" formControlName="moduleContent" class="form-control"></textarea>
+        </div>
+  
+        <!-- Quiz Reference -->
+        <div formGroupName="quizRef">
+          <div class="form-group">
+            <label for="quizId">Quiz ID</label>
+            <input type="text" id="quizId" formControlName="quizId" class="form-control">
+          </div>
+  
+          <div class="form-group">
+            <label for="quizName">Quiz Name</label>
+            <input type="text" id="quizName" formControlName="quizName" class="form-control">
+          </div>
+  
+          <!-- Questions List -->
+          <div formArrayName="questionsList">
+            <div *ngFor="let question of questionsList.controls; let j = index" [formGroupName]="j">
+              <h4>Question {{j + 1}}</h4>
+              <p>{{q}}</p>
+              <p>{{q+j}}</p>
+
+              <div class="form-group">
+                <label for="questionId">Question ID</label>
+                <input type="text" id="questionId" formControlName="questionId" class="form-control">
+              </div>
+  
+              <div class="form-group">
+                <label for="questionName">Question Name</label>
+                <input type="text" id="questionName" formControlName="questionName" class="form-control">
+              </div>
+  
+              <div class="form-group">
+                <label for="option1">Option 1</label>
+                <input type="text" id="option1" formControlName="option1" class="form-control">
+              </div>
+  
+              <div class="form-group">
+                <label for="option2">Option 2</label>
+                <input type="text" id="option2" formControlName="option2" class="form-control">
+              </div>
+  
+              <div class="form-group">
+                <label for="option3">Option 3</label>
+                <input type="text" id="option3" formControlName="option3" class="form-control">
+              </div>
+  
+              <div class="form-group">
+                <label for="option4">Option 4</label>
+                <input type="text" id="option4" formControlName="option4" class="form-control">
+              </div>
+  
+              <div class="form-group">
+                <label for="correctAnswer">Correct Answer</label>
+                <input type="text" id="correctAnswer" formControlName="correctAnswer" class="form-control">
+              </div>
+  
+              <div class="form-group">
+                <label for="weightage">Weightage</label>
+                <input type="number" id="weightage" formControlName="weightage" class="form-control">
+              </div>
+              
+            </div>
+            
+          </div>
+          
+        </div>
+        <button type="button" (click)="addQuestions()">AddQuestion</button>
+  
+        <!-- Video Reference -->
+        <div formArrayName="vedioRef">
+          <div *ngFor="let vedio of vedioRef.controls; let k = index" [formGroupName]="k">
+            <h4>Video {{k + 1}}</h4>
+            <div class="form-group">
+              <label for="vedioId">Vedio ID</label>
+              <input type="text" id="vedioId" formControlName="vedioId" class="form-control">
+            </div>
+  
+            <div class="form-group">
+              <label for="vedioName">Vedio Name</label>
+              <input type="text" id="vedioName" formControlName="vedioName" class="form-control">
+            </div>
+  
+            <div class="form-group">
+              <label for="contentType">Content Type</label>
+              <input type="text" id="contentType" formControlName="contentType" class="form-control">
+            </div>
+  
+            <div class="form-group">
+              <label for="contentName">Content Name</label>
+              <input type="text" id="contentName" formControlName="contentName" class="form-control">
+            </div>
+          </div>
+          <button type="button" (click)="addVideo()">AddVideo</button>
+        </div>
+        <button type="button" (click)="removeModule(i)">removeModule</button>
+        <button type="button" (click)="addModule()">addModule</button>
+      </div>
+
+    </div>
+  
+    <!-- Submit Button -->
+    <button type="submit" class="btn btn-primary" >Submit</button>
+  </form>
+  

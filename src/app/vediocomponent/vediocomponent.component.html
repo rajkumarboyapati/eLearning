@@ -1,0 +1,13 @@
+<p>vediocomponent works!</p>
+<h2>Upload Video</h2>
+<input type="file" (change)="onFileSelected($event)">
+<button (click)="uploadVideo()">Upload</button>
+ 
+<h2>View Video</h2>
+<input type="number" #videoId placeholder="Enter Video ID">
+<button (click)="loadVideo(videoId.value)">Load Video</button>
+ 
+<video *ngIf="videoUrl" width="720" controls>
+  <source [src]="videoUrl" type="video/mp4">
+  Your browser does not support the video tag.
+</video>

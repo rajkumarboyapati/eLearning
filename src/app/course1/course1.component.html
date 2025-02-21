@@ -1,0 +1,106 @@
+
+<form #courseForm="ngForm" (ngSubmit)="onSubmit(courseForm)">
+    <div class="cp">
+        <div><!-- Course Name -->
+    <label for="courseName">Course Name</label>
+    <input id="courseName"  name="courseName" [(ngModel)]="course1.courseName" required />
+</div>
+<div>
+    <label for="courseDuration">Course Duration </label>
+    <input id="courseDuration" name="courseDuration" [(ngModel)]="course1.courseDuration" required />
+</div>
+</div>
+ 
+    <!-- Instructor Section -->
+    <div>
+      <h3>Instructors</h3>
+      <div *ngFor="let instructor of course1.instructorRef; let i = index">
+        <label for="instructorName{{ i }}">Instructor Name</label>
+        <input id="instructorName{{ i }}" name="instructorName{{ i }}" [(ngModel)]="instructor.instructorName" />
+        <label for="instructorContact{{ i }}">Instructor Contact</label>
+        <input id="instructorContact{{ i }}" name="instructorContact{{ i }}" [(ngModel)]="instructor.instructorContact" />
+        <button type="button" (click)="removeInstructor(i)">Remove Instructor</button>
+      </div>
+      <button type="button" (click)="addInstructor()">Add Instructor</button>
+    </div>
+ 
+    <!-- Module Section -->
+    <div>
+      <h3>Modules</h3>
+      <div *ngFor="let module of course1.moduleList; let i = index">
+        <label for="moduleName{{ i }}">Module Name</label>
+        <input id="moduleName{{ i }}" name="moduleName{{ i }}" [(ngModel)]="module.moduleName" />
+        <label for="moduleContent{{ i }}">Module Content</label>
+        <input id="moduleContent{{ i }}" name="moduleContent{{ i }}" [(ngModel)]="module.moduleContent" />
+ 
+        <!-- Quiz Section -->
+        <div>
+          <h4>Quiz</h4>
+          <label for="quizName{{ i }}">Quiz Name</label>
+          <input id="quizName{{ i }}" name="quizName{{ i }}" [(ngModel)]="module.quizRef.quizName" />
+ 
+          <div *ngFor="let question of module.quizRef.questionsList; let j = index">
+            <label for="questionName{{ i }}-{{ j }}">Question Name</label>
+            <input id="questionName{{ i }}-{{ j }}" name="questionName{{ i }}-{{ j }}" [(ngModel)]="question.questionName" />
+ 
+            <!-- Options -->
+            <label for="option1{{ i }}-{{ j }}">Option 1</label>
+            <input id="option1{{ i }}-{{ j }}" name="option1{{ i }}-{{ j }}" [(ngModel)]="question.option1" />
+ 
+            <label for="option2{{ i }}-{{ j }}">Option 2</label>
+            <input id="option2{{ i }}-{{ j }}" name="option2{{ i }}-{{ j }}" [(ngModel)]="question.option2" />
+ 
+            <label for="option3{{ i }}-{{ j }}">Option 3</label>
+            <input id="option3{{ i }}-{{ j }}" name="option3{{ i }}-{{ j }}" [(ngModel)]="question.option3" />
+ 
+            <label for="option4{{ i }}-{{ j }}">Option 4</label>
+            <input id="option4{{ i }}-{{ j }}" name="option4{{ i }}-{{ j }}" [(ngModel)]="question.option4" />
+ 
+            <label for="correctAnswer{{ i }}-{{ j }}">Correct Answer</label>
+            <input id="correctAnswer{{ i }}-{{ j }}" name="correctAnswer{{ i }}-{{ j }}" [(ngModel)]="question.correctAnswer" />
+ 
+            <label for="weightage{{ i }}-{{ j }}">Weightage</label>
+            <input id="weightage{{ i }}-{{ j }}" name="weightage{{ i }}-{{ j }}" [(ngModel)]="question.weightage" />
+ 
+            <button type="button" (click)="removeQuestion(i, j)">Remove Question</button>
+          </div>
+          <button type="button" (click)="addQuestion(i)">Add Question</button>
+        </div>
+ 
+        <!-- Video Section -->
+        <div>
+          <h4>Videos</h4>
+          <div *ngFor="let video of module.vedioRef; let j = index">
+            <label for="videoName{{ i }}-{{ j }}">Video Name</label>
+            <input id="videoName{{ i }}-{{ j }}" name="videoName{{ i }}-{{ j }}" [(ngModel)]="video.vedioName" />
+ 
+            <label for="videoContent{{ i }}-{{ j }}">Video Content (URL)</label>
+            <input id="videoContent{{ i }}-{{ j }}" name="videoContent{{ i }}-{{ j }}" [(ngModel)]="video.contentName" />
+           
+            <button type="button" (click)="removeVideo(i, j)">Remove Video</button>
+          </div>
+          <button type="button" (click)="addVideo(i)">Add Video</button>
+        </div>
+ 
+        <button type="button" (click)="removeModule(i)">Remove Module</button>
+      </div>
+      <button type="button" (click)="addModule()">Add Module</button>
+    </div>
+ 
+    <!-- Level Section -->
+    <div>
+      <h3>Levels</h3>
+      <div *ngFor="let level of course1.levelList; let i = index">
+        <label for="levelName{{ i }}">Level Name</label>
+        <input id="levelName{{ i }}" name="levelName{{ i }}" [(ngModel)]="level.levelName" />
+        <button type="button" (click)="removeLevel(i)">Remove Level</button>
+      </div>
+      <button type="button" (click)="addLevel()">Add Level</button>
+    </div>
+    <div>
+        <h3>Category</h3>
+        <input id="categoryName" name="categoryName" [(ngModel)]="course1.category.categoryName" required />
+    </div>
+ 
+    <button type="submit" [disabled]="!courseForm.valid">Submit</button>
+  </form>
